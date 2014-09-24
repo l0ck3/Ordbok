@@ -1,4 +1,6 @@
 Ordbok
 ======
 
-The woordenboek, or also known as developers documentation for Deconstructed services.
+Developers documentation for [Deconstructed](http://deconstructed.io) services.
+
+Ontwikkelaars documentatie voor [Deconstructed](http://deconstructed.io) diensten.
