@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/Deconstructed/Ordbok.png?label=ready&title=Ready)](https://waffle.io/Deconstructed/Ordbok)
 Ordbok
 ======
 
