@@ -23,10 +23,7 @@ block content
           = article.title
           | </h1>
           section.content
-            | !{ typogr(article.intro).typogrify() }
-            if article.hasMore
-              p.more
-                a(href=article.url) more
+            p Contents coming shortly!
       .dark-box
         .lang-selector
           a(href="#", data-language-name="bash") Bash
@@ -34,15 +31,3 @@ block content
           a(href="#", data-language-name="csharp") C#
           a(href="#", data-language-name="ruby") Ruby
           a(href="#", data-language-name="python") Python
-
-block prepend footer
-  div.nav
-    if prevPage
-      a(href=prevPage.url) « Newer
-    else
-      a(href='/archive.html') « Archives
-    if nextPage
-      a(href=nextPage.url) Next page »
-
-
-
