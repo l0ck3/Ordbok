@@ -12,4 +12,25 @@ html
     script
       !$(function(){setupLanguages(["shell","javascript","ruby","python"]);}
   body.index
+    a#nav-button(href="#")
+        span
+          | NAV
+          img(src="images/navbar.png")
+      .tocify-wrapper
+        img(src="images/logo.png")
+        .lang-selector
+          a(href="#", data-language-name="shell") bash
+          a(href="#", data-language-name="javascript") javascript
+          a(href="#", data-language-name="csharp") C#
+          a(href="#", data-language-name="ruby") ruby
+          a(href="#", data-language-name="python") python
+        .search
+          input#input-search.search(type="text", placeholder="Search")
+        ul.search-results
+        #toc
+        ul.toc-footer
+          li
+            a(href="#") Sign Up for a Developer Key
+          li
+            a(href="http://github.com/tripit/slate") Documentation Powered by Slate
     block content

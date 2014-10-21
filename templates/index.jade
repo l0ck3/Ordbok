@@ -1,25 +1,6 @@
 extends layout
 
 block content
-  a#nav-button(href="#")
-      span
-        | NAV
-        img(src="images/navbar.png")
-    .tocify-wrapper
-      img(src="images/logo.png")
-      .lang-selector
-        a(href="#", data-language-name="shell") shell
-        a(href="#", data-language-name="ruby") ruby
-        a(href="#", data-language-name="python") python
-      .search
-        input#input-search.search(type="text", placeholder="Search")
-      ul.search-results
-      #toc
-      ul.toc-footer
-        li
-          a(href="#") Sign Up for a Developer Key
-        li
-          a(href="http://github.com/tripit/slate") Documentation Powered by Slate
     .page-wrapper
       .dark-box
       .content
@@ -35,184 +16,24 @@ block content
             a(href="http://github.com/tripit/slate") Slate - Developer's documentation site.
           li 
             a(href="http://wintersmith.io/") Wintersmith - Static site generator.
-        
-
-
-
-        h1#authentication Authentication
-        blockquote
-          p To authorize, use this code:
-        pre.highlight.ruby.
-          \n           
-          
-                                          
-                    
-        pre.highlight.python.
-          \n           
-          
-                                          
-                    
-        pre.highlight.shell.
-          \ncurl           
-            -H           
-                    
-        blockquote
-          p
-            | Make sure to replace
-            code.prettyprint meowmeowmeow
-            | with your API key.
-        p
-          | Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our
-          a(href="http://example.com/developers") developer portal
-          | .
-        p
-          | Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-        p
-          code.prettyprint Authorization: meowmeowmeow
-        p
-          aside.notice
-            | You must replace
-            code.prettyprint meowmeowmeow
-            | with your personal API key.
-        h1#kittens Kittens
-        h2#get-all-kittens Get All Kittens
-        pre.highlight.ruby.
-          \n           
-          
-                                          
-                    
-                    
-        pre.highlight.python.
-          \n           
-          
-                                          
-                    
-                    
-        pre.highlight.shell.
-          \ncurl           
-            -H           
-                    
-        blockquote
-          p The above command returns JSON structured like this:
-        pre.highlight.json.
-          
-        p This endpoint retrieves all kittens.
-        h3#http-request HTTP Request
-        p
-          code.prettyprint GET http://example.com/kittens
-        h3#query-parameters Query Parameters
-        table
-          thead
-            tr
-              th Parameter
-              th Default
-              th Description
-          tbody
-            tr
-              td include_cats
-              td false
-              td If set to true, the result will also include cats.
-            tr
-              td available
-              td true
-              td If set to false, the result will include kittens that have already been adopted.
-        p
-          aside.success
-            | Remember &#8212; a happy kitten is an authenticated kitten!
-        h2#get-a-specific-kitten Get a Specific Kitten
-        pre.highlight.ruby.
-          \n           
-          
-                                          
-                    
-                    
-        pre.highlight.python.
-          \n           
-          
-                                          
-                    
-                    
-        pre.highlight.shell.
-          \ncurl           
-            -H           
-                    
-        blockquote
-          p The above command returns JSON structured like this:
-        pre.highlight.json.
-          
-        p This endpoint retrieves a specific kitten.
-        p
-          aside.warning
-            | If you&#8217;re not using an administrator API key, note that some kittens will return 403 Forbidden if they are hidden for admins only.
-        h3#http-request HTTP Request
-        p
-          code.prettyprint GET http://example.com/kittens/&#60;ID&#62;
-        h3#url-parameters URL Parameters
-        table
-          thead
-            tr
-              th Parameter
-              th Description
-          tbody
-            tr
-              td ID
-              td The ID of the cat to retrieve
-        h1#errors Errors
-        p
-          aside.notice
-            | This error section is stored in a separate file in
-            code.prettyprint includes/_errors.md
-            | . Slate allows you to optionally separate out your docs into many files&#8230;just save them to the
-            code.prettyprint includes
-            | folder and add them to the top of your
-            code.prettyprint index.md
-            | &#8217;s frontmatter. Files are included in the order listed.
-        p The Kittn API uses the following error codes:
-        table
-          thead
-            tr
-              th Error Code
-              th Meaning
-          tbody
-            tr
-              td 400
-              td Bad Request &#8211; Your request sucks
-            tr
-              td 401
-              td Unauthorized &#8211; Your API key is wrong
-            tr
-              td 403
-              td Forbidden &#8211; The kitten requested is hidden for administrators only
-            tr
-              td 404
-              td Not Found &#8211; The specified kitten could not be found
-            tr
-              td 405
-              td Method Not Allowed &#8211; You tried to access a kitten with an invalid method
-            tr
-              td 406
-              td Not Acceptable &#8211; You requested a format that isn&#8217;t json
-            tr
-              td 410
-              td Gone &#8211; The kitten requested has been removed from our servers
-            tr
-              td 418
-              td I&#8217;m a teapot
-            tr
-              td 429
-              td Too Many Requests &#8211; You&#8217;re requesting too many kittens! Slown down!
-            tr
-              td 500
-              td Internal Server Error &#8211; We had a problem with our server. Try again later.
-            tr
-              td 503
-              td
-                | Service Unavailable &#8211; We&#8217;re temporarially offline for maintanance. Please try again later.
+        each article in articles
+          | <h1 id="
+          = article.title
+          | ">
+          = article.title
+          | </h1>
+          section.content
+            | !{ typogr(article.intro).typogrify() }
+            if article.hasMore
+              p.more
+                a(href=article.url) more
       .dark-box
         .lang-selector
-          a(href="#", data-language-name="shell") shell
-          a(href="#", data-language-name="ruby") ruby
-          a(href="#", data-language-name="python") python
+          a(href="#", data-language-name="bash") Bash
+          a(href="#", data-language-name="javascript") JavaScript
+          a(href="#", data-language-name="csharp") C#
+          a(href="#", data-language-name="ruby") Ruby
+          a(href="#", data-language-name="python") Python
 
 block prepend footer
   div.nav
