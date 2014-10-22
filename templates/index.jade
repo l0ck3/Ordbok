@@ -1,34 +1,29 @@
 extends layout
 
 block content
-
-      .dark-box
-      .content
-        h1#introduction Introduction
-        p
-          | Welcome to the Deconstructed API Documentation! You can use our API to send applicaiton interactions, which automatically converges consociate data and provides search, reporting, rule processing and actions off of that data.
-        p
-          | For reference to how this documentation is built, and the code that is used to produce this documentation, check out the code repositories on github at:
-        ul
-          li 
-            a(href="https://github.com/Deconstructed/Ordbok") Ordbok - The actual documentation repo you're looking at right now.
-          li
-            a(href="http://github.com/tripit/slate") Slate - Developer's documentation site.
-          li 
-            a(href="http://wintersmith.io/") Wintersmith - Static site generator.
-        each article in articles
-          | <h1 id="
-          = article.title
-          | ">
-          = article.title
-          | </h1>
-          article.article.intro
-            section.content
-              | !{ typogr(article.intro).typogrify() }
-              if article.hasMore
-                p.more
-                  a(href=article.url) more
-      .dark-box
-        .lang-selector
-          a(href="#", data-language-name="bash") Bash
-          a(href="#", data-language-name="javascript") JavaScript
+  .dark-box
+  .content
+    h1#introduction Introduction
+    p Welcome to the Deconstructed API documentation.  Deconstructed uses data you send to automatically create profiles of each user using your websites or applications. Through a continuous process called consociation, we use data you send to map a user to the different cookies, apps and services from which you send data about them.
+    p Deconstructed’s user profiles can be searched in real-time to drive in-app or on-site personalization and contextualization, to drive user-level dashboarding and reporting, or to power the activities of other services in your stack.  
+    p Our Platform also provides a system of rules-based triggers and notifications which allow you to notify or push updates to any other services when a user meets the conditions you define in a rule.  
+    p For reference to how this documentation is built, and the code that is used to produce this documentation, check out the code repositories on github at:
+    ul
+      li 
+        a(href="https://github.com/Deconstructed/Ordbok") Ordbok - The actual documentation repo you're looking at right now.
+      li
+        a(href="http://github.com/tripit/slate") Slate - Developer's documentation site.
+      li 
+        a(href="http://wintersmith.io/") Wintersmith - Static site generator.
+    each article in articles
+      | <h1 id="
+      = article.title
+      | ">
+      = article.title
+      | </h1>
+      article.article.intro
+        section.content
+          | !{ typogr(article.intro).typogrify() }
+          if article.hasMore
+            p.more
+              a(href=article.url) more
