@@ -22,4 +22,4 @@ In the value that stores the JSON, there is one required name. The other names a
  	 * stamp - Adding this with the epoch of the time you want the event set to provides a user defined timeline of events, so that even though the event was received at X date and time it can also be checked & queried against this custom user defined date and time.
  	 * details - JSON data can be saved along with the event. This can be used for determining actions or other related things that might be specific just to the event itself.
  	  
-Other data can be sent in with the event that will be stored and added to the record and consociated will be converged into a single profile, which will provide the extra data for query searches.
+Any other name value pairs sent will be stored as attributes of the user. 

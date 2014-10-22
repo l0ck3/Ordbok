@@ -7,7 +7,7 @@ template: article.jade
 
 `GET https://api.deconstructed.io/stat`
 
-Submit a get against this API end point to receive a system status. At this time it just reports 'alive'. Eventually the intent is to have it report back the status of the nodes within the distributed system that is api.deconstructed.io, that will provide a status page of the entire Deconstructed ecosystem.
+Submit a get against this API end point to receive a system status.  If all is well, it will report ‘alive’. 
 
 > To determine system status, issue a get request like this:
 
