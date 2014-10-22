@@ -2,19 +2,63 @@
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Deconstructed Documentation</title>
-    <atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"></atom:link>
-    <link>http://localhost:8080</link>
+    <atom:link href="http://docs.deconstructed.io/feed.xml" rel="self" type="application/rss+xml"></atom:link>
+    <link>http://docs.deconstructed.io</link>
     <description>Documentation for the Deconstructed API Services.</description>
-    <pubDate>Mon, 29 Apr 2013 17:00:00 -0700</pubDate>
+    <pubDate>Thu, 16 Oct 2014 17:00:00 -0700</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>en</language>
     <item>
-      <title>README</title>
-      <link>http://localhost:8080/articles/hello-world/</link>
-      <pubDate>Mon, 29 Apr 2013 17:00:00 -0700</pubDate>
-      <guid isPermaLink="true">http://localhost:8080/articles/hello-world/</guid>
+      <title>Status</title>
+      <link>http://docs.deconstructed.io/articles/stat/</link>
+      <pubDate>Thu, 16 Oct 2014 17:00:00 -0700</pubDate>
+      <guid isPermaLink="true">http://docs.deconstructed.io/articles/stat/</guid>
       <author></author>
-      <description>&lt;p&gt;Welcome to the Deconstructed API Documentation!&lt;/p&gt;
+      <description>&lt;p&gt;&lt;code&gt;GET https://api.deconstructed.io/stat&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Submit a get against this API end point to receive a system status. At this time it just reports ‘alive’. Eventually the intent is to have it report back the status of the nodes within the distributed system that is api.deconstructed.io, that will provide a status page of the entire Deconstructed ecosystem.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;To determine system status, issue a get request like this:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-shell&quot;&gt;curl https://api.deconstructed.io
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    <item>
+      <title>Reserved Words</title>
+      <link>http://docs.deconstructed.io/articles/reserved-words/</link>
+      <pubDate>Wed, 15 Oct 2014 17:00:00 -0700</pubDate>
+      <guid isPermaLink="true">http://docs.deconstructed.io/articles/reserved-words/</guid>
+      <author></author>
+      <description>&lt;h4 id=&quot;reserved-json-names-with-interactions&quot;&gt;Reserved JSON Names with Interactions&lt;/h4&gt;
+&lt;p&gt;When sending data into the Deconstructed services the data is accepted with a few key names that are reserved. They’re broken out to root level items, which is simply the &lt;em&gt;key&lt;/em&gt; and &lt;em&gt;value&lt;/em&gt; and then the secondary level for reserved names in the value JSON data.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Root Level:&lt;/em&gt;&lt;/strong&gt;
+At the root level there are two required elements:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;key - The key of the data. This can be left empty and the system will populate the key. The key must be of a GUID/UUID format of &lt;code&gt;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;value - The value name pair is simple the JSON object of data to be processed with Deconstructed. The reserved names for this are below.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Secondary Level:&lt;/em&gt;&lt;/strong&gt;
+In the value that stores the JSON, there is one required name. The other names are not required, except for having Deconstructed take actions or provide searching abilities against the data after the fact. More information is detailed by each:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;knownids - (&lt;em&gt;Required&lt;/em&gt;) The known id is an array of name value pairs that list each identifier that Deconstructed will use to converge data against. In the example above the knownid has three name value pairs, two are for &lt;em&gt;email&lt;/em&gt; and one for &lt;em&gt;homeaddress&lt;/em&gt;. The two emails are converged from two email addresses an inidvidual has used, and the long lat would have been something else that was added that the end user would have opted to connect data by. This way knownids go through process that takes consociate data and converges it all together into known graphed (relationships) to a profile.&lt;/li&gt;
+&lt;li&gt;event - (&lt;em&gt;Optional&lt;/em&gt;) This reserved word is used to designate a user defined event having occured. An event might be something like &lt;code&gt;createUser&lt;/code&gt;, &lt;code&gt;email sent&lt;/code&gt;, or &lt;code&gt;user session started&lt;/code&gt;. The event names can be anything that is a alphanumeric string. No special characters or wingdings. These names are then used as user defined event triggers which are queryable and used to initiate rules and actions after data processing is completed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Other data can be sent in with the event that will be stored and added to the record and consociated will be converged into a single profile, which will provide the extra data for query searches.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Interaction</title>
+      <link>http://docs.deconstructed.io/articles/Interaction/</link>
+      <pubDate>Tue, 30 Sep 2014 17:00:00 -0700</pubDate>
+      <guid isPermaLink="true">http://docs.deconstructed.io/articles/Interaction/</guid>
+      <author></author>
+      <description>&lt;p&gt;&lt;code&gt;POST https://api.deconstructed.io/interaction&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;To use this end point submit a POST with the API key, the content type and accept headers. This end point is the primary end point to have data from any type of device or system application stored and converged via consociation in the Deconstructed system. A sample cURL request is shown below:&lt;/p&gt;
+&lt;p&gt;In any case, upon the write of the data the key is then returned via the response as a simple JSON pair as shown:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;{&amp;quot;key&amp;quot;:&amp;quot;F0DB4493-13A1-4EA6-840A-719FEA3F1C13&amp;quot;}&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Currently it is disabled for testing&lt;/em&gt;&lt;/strong&gt;, but in the future, if only the “value” part of the key value pair is sent in, the key will actually be generated. This is why the Deconstructed API will return the key after the interaction is sent and written into the system.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-shell&quot;&gt;curl -X POST -H &amp;quot;Accept: application/json&amp;quot; -H &amp;quot;Content-Type: application/json&amp;quot; -H &amp;quot;apikey: f996f23b-fake-47ef-a4e8-a110f99c6791&amp;quot; -d &amp;#39;{&amp;quot;key&amp;quot;:&amp;quot;F0DB4493-13A1-4EA6-840A-719FEA3F1C13&amp;quot;,&amp;quot;value&amp;quot;:{&amp;quot;knownids&amp;quot;:[{&amp;quot;email&amp;quot;:&amp;quot;the@future.com&amp;quot;},{&amp;quot;homeaddress&amp;quot;:&amp;quot;unique/long/lat&amp;quot;}],&amp;quot;anyOtherJSONdata&amp;quot;:&amp;quot;goes here...&amp;quot;,&amp;quot;andMoreJSON&amp;quot;:&amp;quot;goes here.&amp;quot;,&amp;quot;event&amp;quot;: &amp;quot;anImportantEvent&amp;quot;}}&amp;#39; http://apitest.deconstructed.io/interaction
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
   </channel>

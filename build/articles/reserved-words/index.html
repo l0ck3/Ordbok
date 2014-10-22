@@ -25,29 +25,8 @@
       </ul>
     </div>
     <div class="page-wrapper">
-      <div class="dark-box"></div>
-      <div class="content">
-        <h1 id="introduction">Introduction</h1>
-        <p>Welcome to the Deconstructed API Documentation! You can use our API to send applicaiton interactions, which automatically converges consociate data and provides search, reporting, rule processing and actions off of that data.</p>
-        <p>For reference to how this documentation is built, and the code that is used to produce this documentation, check out the code repositories on github at:</p>
-        <ul>
-          <li><a href="https://github.com/Deconstructed/Ordbok">Ordbok - The actual documentation repo you're looking at right now.</a></li>
-          <li><a href="http://github.com/tripit/slate">Slate - Developer's documentation site.</a></li>
-          <li><a href="http://wintersmith.io/">Wintersmith - Static site generator.</a></li>
-        </ul><h1 id="Status">Status</h1>
-        <article class="article intro">
-          <section class="content"><p><code>GET https://api.deconstructed.io/stat</code></p>
-<p>Submit a get against this <span class="caps">API</span> end point to receive a system status. At this time it just reports ‘alive’. Eventually the intent is to have it report back the status of the nodes within the distributed system that is api.deconstructed.io, that will provide a status page of the entire Deconstructed&nbsp;ecosystem.</p>
-<blockquote>
-<p>To determine system status, issue a get request like&nbsp;this:</p>
-</blockquote>
-<pre><code class="lang-shell">curl https://api.deconstructed.io
-</code></pre>
-
-          </section>
-        </article><h1 id="Reserved Words">Reserved Words</h1>
-        <article class="article intro">
-          <section class="content"><h4 id="reserved-json-names-with-interactions">Reserved <span class="caps">JSON</span> Names with&nbsp;Interactions</h4>
+      <article class="article">
+        <section class="content"><h4 id="reserved-json-names-with-interactions">Reserved <span class="caps">JSON</span> Names with&nbsp;Interactions</h4>
 <p>When sending data into the Deconstructed services the data is accepted with a few key names that are reserved. They’re broken out to root level items, which is simply the <em>key</em> and <em>value</em> and then the secondary level for reserved names in the value <span class="caps">JSON</span>&nbsp;data.</p>
 <p><strong><em>Root Level:</em></strong>
 At the root level there are two required&nbsp;elements:</p>
@@ -62,24 +41,8 @@ In the value that stores the <span class="caps">JSON</span>, there is one requir
 <li>event - (<em>Optional</em>) This reserved word is used to designate a user defined event having occured. An event might be something like <code>createUser</code>, <code>email sent</code>, or <code>user session started</code>. The event names can be anything that is a alphanumeric string. No special characters or wingdings. These names are then used as user defined event triggers which are queryable and used to initiate rules and actions after data processing is&nbsp;completed.</li>
 </ul>
 <p>Other data can be sent in with the event that will be stored and added to the record and consociated will be converged into a single profile, which will provide the extra data for query&nbsp;searches.</p>
-
-          </section>
-        </article><h1 id="Interaction">Interaction</h1>
-        <article class="article intro">
-          <section class="content"><p><code>POST https://api.deconstructed.io/interaction</code></p>
-<p>To use this end point submit a <span class="caps">POST</span> with the API key, the content type and accept headers. This end point is the primary end point to have data from any type of device or system application stored and converged via consociation in the Deconstructed system. A sample cURL request is shown&nbsp;below:</p>
-<p>In any case, upon the write of the data the key is then returned via the response as a simple <span class="caps">JSON</span> pair as&nbsp;shown:</p>
-<p><code>{&quot;key&quot;:&quot;F0DB4493-13A1-4EA6-840A-719FEA3F1C13&quot;}</code></p>
-<p><strong><em>Currently it is disabled for testing</em></strong>, but in the future, if only the “value” part of the key value pair is sent in, the key will actually be generated. This is why the Deconstructed <span class="caps">API</span> will return the key after the interaction is sent and written into the&nbsp;system.</p>
-<pre><code class="lang-shell">curl -X POST -H &quot;Accept: application/json&quot; -H &quot;Content-Type: application/json&quot; -H &quot;apikey: f996f23b-fake-47ef-a4e8-a110f99c6791&quot; -d &#39;{&quot;key&quot;:&quot;F0DB4493-13A1-4EA6-840A-719FEA3F1C13&quot;,&quot;value&quot;:{&quot;knownids&quot;:[{&quot;email&quot;:&quot;the@future.com&quot;},{&quot;homeaddress&quot;:&quot;unique/long/lat&quot;}],&quot;anyOtherJSONdata&quot;:&quot;goes here...&quot;,&quot;andMoreJSON&quot;:&quot;goes here.&quot;,&quot;event&quot;: &quot;anImportantEvent&quot;}}&#39; http://apitest.deconstructed.io/interaction
-</code></pre>
-
-          </section>
-        </article>
-      </div>
-      <div class="dark-box">
-        <div class="lang-selector"><a href="#" data-language-name="bash">Bash</a><a href="#" data-language-name="javascript">JavaScript</a></div>
-      </div>
+</section>
+      </article>
     </div>
   </body>
 </html>
