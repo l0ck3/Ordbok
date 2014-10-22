@@ -1,7 +1,7 @@
 extends layout
 
 block content
-    .page-wrapper
+
       .dark-box
       .content
         h1#introduction Introduction
@@ -22,12 +22,13 @@ block content
           | ">
           = article.title
           | </h1>
-          section.content
-            p Contents coming shortly!
+          article.article.intro
+            section.content
+              | !{ typogr(article.intro).typogrify() }
+              if article.hasMore
+                p.more
+                  a(href=article.url) more
       .dark-box
         .lang-selector
           a(href="#", data-language-name="bash") Bash
           a(href="#", data-language-name="javascript") JavaScript
-          a(href="#", data-language-name="csharp") C#
-          a(href="#", data-language-name="ruby") Ruby
-          a(href="#", data-language-name="python") Python

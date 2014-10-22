@@ -1,7 +1,7 @@
 ---
 title: "Status"
 author: adron-hall
-date: 2014-02-15
+date: 2014-10-17
 template: article.jade
 ---
 
@@ -12,13 +12,5 @@ Submit a get against this API end point to receive a system status. At this time
 > To determine system status, issue a get request like this:
 
 ```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+curl https://api.deconstructed.io
 ```

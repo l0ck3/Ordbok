@@ -25,26 +25,16 @@
       </ul>
     </div>
     <div class="page-wrapper">
-      <section class="archive">
-        <h2>Archive</h2>
-        <ul>
-          <li><span style="line-height:6.6000000000000005em" class="year-label">2014</span>
-            <ul style="margin-left:4em">
-              <li><span style="line-height:4.4em" class="month-label">October</span>
-                <ul style="margin-left:7em">
-                  <li style="height:2.2em;line-height:2.2em;"><a href="/articles/stat/">Status</a></li>
-                  <li style="height:2.2em;line-height:2.2em;"><a href="/articles/reserved-words/">Reserved Words</a></li>
-                </ul>
-              </li>
-              <li><span style="line-height:2.2em" class="month-label">September</span>
-                <ul style="margin-left:7em">
-                  <li style="height:2.2em;line-height:2.2em;"><a href="/articles/Interaction/">Interaction</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </section>
+      <article class="article">
+        <section class="content"><p><code>GET https://api.deconstructed.io/stat</code></p>
+<p>Submit a get against this <span class="caps">API</span> end point to receive a system status. At this time it just reports ‘alive’. Eventually the intent is to have it report back the status of the nodes within the distributed system that is api.deconstructed.io, that will provide a status page of the entire Deconstructed&nbsp;ecosystem.</p>
+<blockquote>
+<p>To determine system status, issue a get request like&nbsp;this:</p>
+</blockquote>
+<pre><code class="lang-shell">curl https://api.deconstructed.io
+</code></pre>
+</section>
+      </article>
     </div>
   </body>
 </html>
