@@ -1,7 +1,7 @@
 ---
-title: "Interaction By"
+title: "Retrieving Interactions"
 author: adron-hall
-date: 2014-10-21
+date: 2014-10-20
 template: article.jade
 ---
 
@@ -30,7 +30,3 @@ curl -X POST -H "Accept: application/json" -H "Content-Type: application/json" -
 ```
 
 > The knownid element can have as many identifiers sent in with the request as necessary.
-
-```javascript
-N/A
-```

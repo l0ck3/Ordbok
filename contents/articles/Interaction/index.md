@@ -34,7 +34,3 @@ In any case, upon the write of the data the key is then returned via the respons
 ```bash
 curl -X POST -H "Accept: application/json" -H "Content-Type: application/json" -H "apikey: f996f23b-fake-47ef-a4e8-a110f99c6791" -d '{"key":"F0DB4493-13A1-4EA6-840A-719FEA3F1C13","value":{"knownids":[{"email":"the@future.com"},{"homeaddress":"unique/long/lat"}],"anyOtherJSONdata":"goes here...","andMoreJSON":"goes here.","event": "anImportantEvent"}}' https://api.deconstructed.io/interaction
 ```
-
-```javascript
-N/A
-```
