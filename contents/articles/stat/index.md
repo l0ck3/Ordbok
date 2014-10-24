@@ -14,7 +14,3 @@ Submit a get against this API end point to receive a system status.  If all is w
 ```bash
 curl https://api.deconstructed.io
 ```
-
-```javascript
-N/A
-```
